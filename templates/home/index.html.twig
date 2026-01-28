@@ -1,0 +1,30 @@
+{# templates/home/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}À la une - Symfony News
+{% endblock %}
+
+{% block body %}
+	<div class="hero">
+		<h1>L'Actualité Tech en Continu</h1>
+		<p>Décryptages, tutoriels et analyses approfondies. Plongez au cœur de l'information développeur.</p>
+		<div style="margin-top: 20px;">
+			<a href="{{ path('app_article_index') }}" class="btn btn-primary">Commencer la lecture</a>
+			<a href="#" class="btn btn-outline">S'abonner à la newsletter</a>
+		</div>
+	</div>
+
+	<div style="display: flex; gap: 20px; margin-bottom: 3rem; flex-wrap: wrap;">
+		<div class="article-card" style="padding: 20px; text-align: center; flex: 1; min-width: 250px;">
+			<span style="font-size: 2rem;">⚡</span>
+			<h3 style="color: var(--primary);">Flash Info</h3>
+			<p>Les dernières news de l'écosystème en temps réel.</p>
+		</div>
+		<div class="article-card" style="padding: 20px; text-align: center; flex: 1; min-width: 250px;">
+			<span style="font-size: 2rem;">🧠</span>
+			<h3 style="color: var(--primary);">Analyses de Fond</h3>
+			<p>Des dossiers complets pour comprendre les enjeux techniques.</p>
+		</div>
+
+	</div>
+{% endblock %}

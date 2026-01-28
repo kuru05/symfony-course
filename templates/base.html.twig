@@ -1,0 +1,44 @@
+{# templates/base.html.twig #}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Symfony News
+			{% endblock %}
+		</title>
+		{# On garde ton fichier CSS, il fonctionnera très bien pour un blog #}
+		<link rel="stylesheet" href="{{ asset('styles/app.css') }}"> {% block stylesheets %}{% endblock %}
+		</head>
+		<body>
+			<header>
+				<nav>
+					{# Titre du site type "Journal" #}
+					<a href="{{ path('app_home') }}" class="logo">Kuru<span style="color: var(--accent);">News</span>
+					</a>
+					<ul>
+						<li>
+							<a href="{{ path('app_home') }}">À la une</a>
+						</li>
+						<li>
+							<a href="{{ path('app_article_index') }}">Nos Articles</a>
+						</li>
+						<li>
+							<a href="{{ path('app_contact') }}">Contact</a>
+						</li>
+						{# Tu pourras ajouter "Contact" ou "A propos" ici plus tard #}
+					</ul>
+				</nav>
+			</header>
+
+			<main>
+				{% block body %}{% endblock %}
+			</main>
+
+			<footer>
+				<p>&copy;
+					{{ "now"|date("Y") }}
+					Kuru05 - Tous droits reservés</p>
+			</footer>
+		</body>
+	</html>

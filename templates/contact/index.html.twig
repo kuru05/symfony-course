@@ -1,0 +1,71 @@
+{# templates/contact/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactez la Rédaction
+{% endblock %}
+
+{% block body %}
+	<div style="text-align: center; margin-bottom: 3rem;">
+		<h1 style="color: var(--primary); font-size: 2.5rem;">Contactez-nous</h1>
+		<p style="color: #666; font-size: 1.1rem;">Une info à partager ? Une question sur un article ? Écrivez-nous.</p>
+	</div>
+
+	<div style="display: flex; gap: 4rem; max-width: 1000px; margin: 0 auto; flex-wrap: wrap;">
+
+		<div style="flex: 2; min-width: 300px;">
+			<div class="article-card" style="padding: 2rem;">
+				<form>
+					<div style="margin-bottom: 1.5rem;">
+						<label style="display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--primary);">Votre Nom</label>
+						<input type="text" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box;">
+					</div>
+
+					<div style="margin-bottom: 1.5rem;">
+						<label style="display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--primary);">Email</label>
+						<input type="email" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box;">
+					</div>
+
+					<div style="margin-bottom: 1.5rem;">
+						<label style="display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--primary);">Sujet</label>
+						<select style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; background: white;">
+							<option>Proposer un article</option>
+							<option>Signaler une erreur</option>
+							<option>Publicité / Partenariat</option>
+							<option>Autre</option>
+						</select>
+					</div>
+
+					<div style="margin-bottom: 1.5rem;">
+						<label style="display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--primary);">Votre Message</label>
+						<textarea rows="5" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: inherit;"></textarea>
+					</div>
+
+					<button type="submit" class="btn btn-primary" style="width: 100%;">Envoyer le message</button>
+				</form>
+			</div>
+		</div>
+
+		<div style="flex: 1; min-width: 250px;">
+			<div style="margin-bottom: 2rem;">
+				<h3 style="color: var(--primary); border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px;">La Rédaction</h3>
+				<p style="margin-top: 1rem; line-height: 1.6;">
+					<strong>Kuru News HQ</strong><br>
+					12 Rue du Code<br>
+					75000 Paris, France
+				</p>
+				<p>
+					📧 redaction@kurunews.fr<br>
+					📞 +33 1 23 45 67 89
+				</p>
+			</div>
+
+			<div>
+				<h3 style="color: var(--primary); border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px;">Recrutement</h3>
+				<p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+					Vous êtes expert Symfony et vous aimez écrire ? Nous cherchons des pigistes freelance. Envoyez votre CV via le formulaire.
+				</p>
+			</div>
+		</div>
+
+	</div>
+{% endblock %}
