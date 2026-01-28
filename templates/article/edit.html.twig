@@ -1,13 +1,37 @@
+{# templates/article/edit.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Article{% endblock %}
+{% block title %}Édition :
+	{{ article.title }}
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Article</h1>
+<div style="margin-bottom: 2rem; font-size: 0.9rem; color: #666;">
+	<a href="{{ path('app_article_index') }}" style="color: #666; text-decoration: none;">Articles</a>
+	<span style="margin: 0 10px;">/</span>
+	<span style="color: var(--primary);">Modifier l'article</span>
+</div>
 
-    {{ include('article/_form.html.twig', {'button_label': 'Update'}) }}
+<div style="display: flex; flex-direction: column; align-items: center;">
 
-    <a href="{{ path('app_article_index') }}">back to list</a>
+	<h1 style="margin-bottom: 2rem; color: var(--primary); text-align: center;">Modifier l'article</h1>
 
-    {{ include('article/_delete_form.html.twig') }}
+	<div class="form-card" style="width: 100%;">
+		{{ include('article/_form.html.twig', {'button_label': 'Mettre à jour l\'article'}) }}
+        </div>
+
+        <div style="margin-top: 3rem; width: 100%; max-width: 800px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #ddd; padding-top: 2rem;">
+            
+            <a href="{{ path('app_article_index') }}" class="btn btn-outline" style="border-color: #bdc3c7; color: #7f8c8d; margin-left: 0;">
+                ← Annuler
+            </a>
+
+            {# Bloc Suppression sécurisé visuellement #}
+            <div style="background: #fff5f5; padding: 10px 20px; border-radius: 8px; border: 1px solid #feb2b2; display: flex; align-items: center; gap: 15px;">
+                <span style="color: #c0392b; font-size: 0.9rem; font-weight: bold;">Zone dangereuse :</span>
+                {{ include('article/_delete_form.html.twig') }}
+            </div>
+        </div>
+
+    </div>
 {% endblock %}

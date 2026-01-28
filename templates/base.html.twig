@@ -13,32 +13,36 @@
 		<body>
 			<header>
 				<nav>
-					{# Titre du site type "Journal" #}
 					<a href="{{ path('app_home') }}" class="logo">Kuru<span style="color: var(--accent);">News</span>
 					</a>
+					{# Titre du site type "Journal" #}
 					<ul>
-						<li>
-							<a href="{{ path('app_home') }}">À la une</a>
-						</li>
-						<li>
-							<a href="{{ path('app_article_index') }}">Nos Articles</a>
-						</li>
-						<li>
-							<a href="{{ path('app_contact') }}">Contact</a>
-						</li>
-						{# Tu pourras ajouter "Contact" ou "A propos" ici plus tard #}
+						<li><a href="{{path('app_home')}}">À la une</a></li>
+						<li><a href="{{path('app_article_index')}}">Nos Articles</a></li>
+						<li><a href="{{path('app_contact')}}">Contact</a></li>
 					</ul>
 				</nav>
 			</header>
 
 			<main>
+				{# --- DÉBUT BLOCK MESSAGES FLASH --- #}
+				{# Ce code affiche les alertes (succès/erreur) envoyées par le contrôleur #}
+					{% for label, messages in app.flashes %}
+						{% for message in messages %}
+							<div class="alert alert-{{ label }}"> {{ message }}
+						</div>
+					{% endfor %}
+				{% endfor %}
+				{# --- FIN BLOCK MESSAGES FLASH --- #}
+
 				{% block body %}{% endblock %}
 			</main>
 
 			<footer>
 				<p>&copy;
 					{{ "now"|date("Y") }}
-					Kuru05 - Tous droits reservés</p>
+					Kuru05 - Tous droits réservés</p>
 			</footer>
 		</body>
 	</html>
+
