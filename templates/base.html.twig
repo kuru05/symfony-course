@@ -7,42 +7,51 @@
 			{% block title %}Symfony News
 			{% endblock %}
 		</title>
+		<link
+		rel="icon" href="{{ asset('images/logo/logo.png') }}">
 		{# On garde ton fichier CSS, il fonctionnera très bien pour un blog #}
 		<link rel="stylesheet" href="{{ asset('styles/app.css') }}"> {% block stylesheets %}{% endblock %}
 		</head>
 		<body>
 			<header>
 				<nav>
-					<a href="{{ path('app_home') }}" class="logo">Kuru<span style="color: var(--accent);">News</span>
+					<a href="{{ path('app_home') }}" class="logo"><img src="{{ asset('images/logo/logo.png') }}" alt="Logo">
 					</a>
 					{# Titre du site type "Journal" #}
 					<ul>
-						<li><a href="{{path('app_home')}}">À la une</a></li>
-						<li><a href="{{path('app_article_index')}}">Nos Articles</a></li>
-						<li><a href="{{path('app_contact')}}">Contact</a></li>
+						{# NAVBAR #}
+						<li>
+							<a href="{{path('app_home')}}">À la une</a>
+						</li>
+						<li>
+							<a href="{{path('app_article_index')}}">Nos Articles</a>
+						</li>
+						<li>
+							<a href="{{path('app_contact')}}">Contact</a>
+						</li>
 					</ul>
 				</nav>
-			</header>
-
-			<main>
-				{# --- DÉBUT BLOCK MESSAGES FLASH --- #}
-				{# Ce code affiche les alertes (succès/erreur) envoyées par le contrôleur #}
-					{% for label, messages in app.flashes %}
-						{% for message in messages %}
-							<div class="alert alert-{{ label }}"> {{ message }}
-						</div>
-					{% endfor %}
-				{% endfor %}
-				{# --- FIN BLOCK MESSAGES FLASH --- #}
-
-				{% block body %}{% endblock %}
-			</main>
-
-			<footer>
-				<p>&copy;
-					{{ "now"|date("Y") }}
-					Kuru05 - Tous droits réservés</p>
-			</footer>
+			</body>
 		</body>
 	</html>
+</header>
 
+<main>
+	{# --- DÉBUT BLOCK MESSAGES FLASH --- #}
+	{# Ce code affiche les alertes (succès/erreur) envoyées par le contrôleur #}
+		{% for label, messages in app.flashes %}
+			{% for message in messages %}
+				<div class="alert alert-{{ label }}"> {{ message }}
+			</div>
+		{% endfor %}
+	{% endfor %}
+	{# --- FIN BLOCK MESSAGES FLASH --- #}
+
+	{% block body %}{% endblock %}
+</main>
+
+<footer>
+	<p>&copy;
+		{{ "now"|date("Y") }}
+		Kuru05 - Tous droits réservés</p>
+</footer></body></html>

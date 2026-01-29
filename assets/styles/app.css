@@ -49,6 +49,15 @@ nav {
     color: var(--primary);
     text-decoration: none;
     letter-spacing: -0.5px;
+    display: flex;
+    /* Aligns image if there's text, but mainly good practice */
+    align-items: center;
+}
+
+.logo img {
+    max-height: 100px;
+    /* Fits within the 70px nav height */
+    width: auto;
 }
 
 nav ul {
